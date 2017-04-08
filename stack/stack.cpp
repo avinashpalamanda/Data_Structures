@@ -1,21 +1,19 @@
-#include<iostream>
+#include"stack.h"
 using namespace std;
 
-/*Creating struct to save stack data*/
-struct stack{
-  int data;
-  struct stack* next;
-};
-
-struct stack* head=NULL;//Head of stack
+//struct stack* head=NULL;
 
 /*Function to push data*/
-void push(int data){
-  struct stack* current=new struct stack;
+template class Stack<int>;
+template class Stack<char>;
+template class Stack<string>;
+
+template <class T>
+void Stack<T>::push(T data){
+  struct stack<T>* current=new struct stack<T>;
   current->data=data;
 
   if(head!=NULL){
-
     current->next=head;
     head=current;
     return;
@@ -26,17 +24,21 @@ void push(int data){
 }
 
 /*Function to pop data*/
-void pop(){
-  if(head!=NULL){
-    cout<<"Data Pop'd - "<<head->data<<"\n";
-    head=head->next;
+template <class T>
+void Stack<T>::pop(){
+  struct stack<T>* current=new struct stack<T>;
+  current=head;
+  if(current!=NULL){
+    cout<<"Data Pop'd - "<<(current->data)<<"\n";
+    head=current->next;
   }
   else
     cout<<"Stack is Empty\n";
   }
 
 /*Function to print top of data*/
-void top(){
+template <class T>
+void Stack<T>::top(){
   if(head!=NULL)
     cout<<"Top of Stack - "<<head->data<<"\n";
   else
@@ -45,12 +47,13 @@ void top(){
 }
 
 /*Function to print Data*/
-void print_stack(){
+template <class T>
+void Stack<T>::print_stack(){
   if(head==NULL){
     cout<<"Stack is Empty\n";
     return;
   }
-  struct stack* current=new struct stack;
+  struct stack<T>* current=new struct stack<T>;
   current=head;
   while(current!=NULL){
     cout<<current->data<<" ";
@@ -58,21 +61,4 @@ void print_stack(){
   }
   cout<<"\n";
   return;
-}
-
-int main(){
-  for(int i=0;i<10;i++){
-    push(i);
-  }
-  print_stack();
-  top();
-  for(int i=0;i<8;i++){
-    pop();
-  }
-  print_stack();
-  top();
-  for(int i=0;i<2;i++)
-    pop();
-  print_stack();
-  top();
 }

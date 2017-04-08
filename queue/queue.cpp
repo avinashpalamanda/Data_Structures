@@ -1,18 +1,16 @@
-#include<iostream>
+#include "queue.h"
+#include<string.h>
 
 using namespace std;
 
-/*Structure to hold queue*/
-struct queue{
-  int data;
-  struct queue* next;
-};
+template class Queue<int>;
+template class Queue<char>;
+template class Queue<string>;
 
-struct queue* head=NULL;//Head of queue
-struct queue* tail=NULL;//Tail of queue
 
-void enqueue(int data){
-  struct queue* current=new struct queue;
+template <class T>
+void Queue<T>::enqueue(T data){
+  struct queue<T>* current=new struct queue<T>;
 
   current->data=data;
   current->next=NULL;
@@ -27,7 +25,8 @@ void enqueue(int data){
   tail=current;
 }
 
-void dequeue(){
+template <class T>
+void Queue<T>::dequeue(){
   if(head==NULL){
     cout<<"Queue is Empty\n";
     return;
@@ -37,7 +36,8 @@ void dequeue(){
   return;
 }
 
-void top(){
+template <class T>
+void Queue<T>::top(){
   if(head!=NULL)
     cout<<"Top Element - "<<head->data<<"\n";
   else
@@ -45,13 +45,14 @@ void top(){
   return;
 }
 
-void print_queue(){
+template <class T>
+void Queue<T>::print_queue(){
   if(head==NULL){
     cout<<"Queue is Empty\n";
     return;
   }
 
-  struct queue* current=new struct queue;
+  struct queue<T>* current=new struct queue<T>;
   current=head;
   while(current!=NULL){
     cout<<current->data<<" ";
@@ -59,22 +60,4 @@ void print_queue(){
   }
   cout<<"\n";
   return;
-}
-
-int main(){
-  for(int i=0;i<10;i++){
-    enqueue(i);
-  }
-  top();
-  print_queue();
-  for(int i=0;i<8;i++){
-    dequeue();
-  }
-  top();
-  print_queue();
-  for(int i=0;i<2;i++){
-    dequeue();
-  }
-  top();
-  print_queue();
 }

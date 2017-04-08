@@ -1,12 +1,9 @@
 #include<iostream>
+#include"hashing.h"
 using namespace std;
 #define INDEX 1000
 
-struct hash_table{
-  int key=-1;
-  int data=-1;
-  struct hash_table* next=NULL;
-}hash_table[INDEX];
+struct hash_table hash_table[INDEX];
 
 int hash_key(int data){
   return (data%INDEX);
@@ -91,11 +88,4 @@ void find(int data){
     }
   }
   cout<<"Not Found\n";
-}
-
-
-int main(){
-  for(int i=0;i<=600020;i++)
-    insert_data(i);
-  find(600020);
 }
