@@ -2,24 +2,24 @@
 
 using namespace std;
 
-template<class T>
+template<class U,class T>
 struct linked_list{
-  T key;
+  U key;
   T data;
-  struct linked_list<T>* next;
+  struct linked_list<U,T>* next;
 };
 
-template<class T>
+template<class U,class T>
 class list{
 public:
-struct linked_list<T>* head=NULL;
-void insert_first(T,T);
-void insert_last(T,T);
-void insert_key(T,T,T);
+struct linked_list<U,T>* head=NULL;
+void insert_first(U,T);
+void insert_last(U,T);
+void insert_key(U,T,U);
 void remove_first();
 void remove_last();
-void remove(T);
-void find(T);
+void remove(U);
+void find(U);
 void print_list();
 void reverse();
 void sort();

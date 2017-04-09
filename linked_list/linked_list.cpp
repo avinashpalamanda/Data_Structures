@@ -1,11 +1,15 @@
 #include"linked_list.h"
 
-template class list<int>;
-template class list<char>;
-template class list<string>;
-template<class T>
-void list<T>::insert_first(T key,T data){
-  struct linked_list<T>* temp=new struct linked_list<T>;
+template class list<int,int>;
+template class list<char,char>;
+template class list<string,string>;
+
+template class list<int,char>;
+template class list<char,int>;
+
+template<class U,class T>
+void list<U,T>::insert_first(U key,T data){
+  struct linked_list<U,T>* temp=new struct linked_list<U,T>;
 
   temp->key=key;
   temp->data=data;
@@ -15,10 +19,10 @@ void list<T>::insert_first(T key,T data){
   return;
 }
 
-template<class T>
-void list<T>::insert_last(T key,T data){
-  struct linked_list<T>* current=new struct linked_list<T>;
-  struct linked_list<T>* temp=new struct linked_list<T>;
+template<class U,class T>
+void list<U,T>::insert_last(U key,T data){
+  struct linked_list<U,T>* current=new struct linked_list<U,T>;
+  struct linked_list<U,T>* temp=new struct linked_list<U,T>;
 
   temp->data=data;
   temp->key=key;
@@ -38,11 +42,11 @@ void list<T>::insert_last(T key,T data){
   return;
 }
 
-template<class T>
-void list<T>::insert_key(T key,T data,T key_refer){
-  struct linked_list<T>* current=new struct linked_list<T>;
-  struct linked_list<T>* temp=new struct linked_list<T>;
-  struct linked_list<T>* prev=new struct linked_list<T>;
+template<class U,class T>
+void list<U,T>::insert_key(U key,T data,U key_refer){
+  struct linked_list<U,T>* current=new struct linked_list<U,T>;
+  struct linked_list<U,T>* temp=new struct linked_list<U,T>;
+  struct linked_list<U,T>* prev=new struct linked_list<U,T>;
 
   current=head;
   temp->key=key;
@@ -71,8 +75,8 @@ void list<T>::insert_key(T key,T data,T key_refer){
   cout<<"Key_Refer Not found\n";
 }
 
-template<class T>
-void list<T>::remove_first(){
+template<class U,class T>
+void list<U,T>::remove_first(){
   if(head==NULL){
     cout<<"List is Empty\n";
     return;
@@ -80,10 +84,10 @@ void list<T>::remove_first(){
   head=head->next;
 }
 
-template<class T>
-void list<T>::remove_last(){
-  struct linked_list<T>* current=new struct linked_list<T>;
-  struct linked_list<T>* prev=new struct linked_list<T>;
+template<class U,class T>
+void list<U,T>::remove_last(){
+  struct linked_list<U,T>* current=new struct linked_list<U,T>;
+  struct linked_list<U,T>* prev=new struct linked_list<U,T>;
   current=head;
 
   if(head==NULL){
@@ -104,10 +108,10 @@ void list<T>::remove_last(){
   return;
 }
 
-template<class T>
-void list<T>::remove(T key){
-  struct linked_list<T>* current=new struct linked_list<T>;
-  struct linked_list<T>* prev=new struct linked_list<T>;
+template<class U,class T>
+void list<U,T>::remove(U key){
+  struct linked_list<U,T>* current=new struct linked_list<U,T>;
+  struct linked_list<U,T>* prev=new struct linked_list<U,T>;
   current=head;
 
   if(current==NULL){
@@ -132,9 +136,9 @@ void list<T>::remove(T key){
   return;
 }
 
-template<class T>
-void list<T>::find(T key){
-  struct linked_list<T>* current=new struct linked_list<T>;
+template<class U,class T>
+void list<U,T>::find(U key){
+  struct linked_list<U,T>* current=new struct linked_list<U,T>;
   current=head;
 
   if(head==NULL){
@@ -152,9 +156,9 @@ void list<T>::find(T key){
   cout<<"Key Not Found\n";
 }
 
-template<class T>
-void list<T>::print_list(){
-  struct linked_list<T>* current=new struct linked_list<T>;
+template<class U,class T>
+void list<U,T>::print_list(){
+  struct linked_list<U,T>* current=new struct linked_list<U,T>;
   current=head;
 
   if(current==NULL){
@@ -170,11 +174,11 @@ void list<T>::print_list(){
   cout<<"]\n";
 }
 
-template<class T>
-void list<T>::reverse(){
-  struct linked_list<T>* current=new struct linked_list<T>;
-  struct linked_list<T>* next=new struct linked_list<T>;
-  struct linked_list<T>* prev=new struct linked_list<T>;
+template<class U,class T>
+void list<U,T>::reverse(){
+  struct linked_list<U,T>* current=new struct linked_list<U,T>;
+  struct linked_list<U,T>* next=new struct linked_list<U,T>;
+  struct linked_list<U,T>* prev=new struct linked_list<U,T>;
   current=head;
   prev=NULL;
   while(current!=NULL){
@@ -188,11 +192,11 @@ void list<T>::reverse(){
   return;
 }
 
-template<class T>
-void list<T>::sort(){
-  struct linked_list<T>* current=new struct linked_list<T>;
-  struct linked_list<T>* ref=new struct linked_list<T>;
-  struct linked_list<T>* temp=new struct linked_list<T>;
+template<class U,class T>
+void list<U,T>::sort(){
+  struct linked_list<U,T>* current=new struct linked_list<U,T>;
+  struct linked_list<U,T>* ref=new struct linked_list<U,T>;
+  struct linked_list<U,T>* temp=new struct linked_list<U,T>;
 
   current=head;
   while(current!=NULL){
@@ -215,9 +219,9 @@ void list<T>::sort(){
   }
 }
 
-template<class T>
-void list<T>::count(){
-  struct linked_list<T>* current=head;
+template<class U,class T>
+void list<U,T>::count(){
+  struct linked_list<U,T>* current=head;
   int count=0;
   while(current!=NULL){
     count++;

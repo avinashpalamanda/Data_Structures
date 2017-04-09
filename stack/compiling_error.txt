@@ -1,3 +1,8 @@
-/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o: In function `_start':
-(.text+0x20): undefined reference to `main'
+/tmp/ccg3qSh4.o: In function `main':
+main.cpp:(.text+0x56): undefined reference to `Stack<int>::push(int)'
+main.cpp:(.text+0x6d): undefined reference to `Stack<char>::push(char)'
+main.cpp:(.text+0xa1): undefined reference to `Stack<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::push(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)'
+main.cpp:(.text+0xcb): undefined reference to `Stack<int>::print_stack()'
+main.cpp:(.text+0xd7): undefined reference to `Stack<char>::print_stack()'
+main.cpp:(.text+0xe3): undefined reference to `Stack<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::print_stack()'
 collect2: error: ld returned 1 exit status
